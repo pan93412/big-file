@@ -1,10 +1,13 @@
-const res = await fetch("http://hgd-speedtest-1.tele2.net/100GB.zip");
+const src = "https://speed.hetzner.de/1GB.bin";
+const res = await fetch(src);
 
 // instead of response.json() and other methods
 const reader = res.body.getReader();
 
 let last = 0;
 let hasRead = 0;
+
+console.log("started");
 
 // infinite loop while the body is downloading
 while(true) {
@@ -23,4 +26,3 @@ while(true) {
     console.log(`Received ${hasRead / 1024 / 1024} MB`);
   }
 }
-
